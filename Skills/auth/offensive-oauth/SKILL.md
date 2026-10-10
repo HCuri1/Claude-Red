@@ -1,29 +1,7 @@
-# SKILL: OAuth Security Testing
-
-## Metadata
-- **Skill Name**: oauth-attacks
-- **Folder**: offensive-oauth
-- **Source**: https://github.com/SnailSploit/offensive-checklist/blob/main/oauth.md
-
-## Description
-OAuth 2.0 attack checklist: authorization code interception, redirect_uri bypass, CSRF on OAuth flow, state parameter abuse, open redirector chaining, token leakage via Referer, PKCE bypass, and scope escalation. Use when testing OAuth implementations in web apps or bug bounty.
-
-## Trigger Phrases
-Use this skill when the conversation involves any of:
-`OAuth, OAuth 2.0, authorization code, redirect_uri bypass, OAuth CSRF, state parameter, PKCE bypass, scope escalation, token leakage, open redirector, OAuth attack`
-
-## Instructions for Claude
-
-When this skill is active:
-1. Load and apply the full methodology below as your operational checklist
-2. Follow steps in order unless the user specifies otherwise
-3. For each technique, consider applicability to the current target/context
-4. Track which checklist items have been completed
-5. Suggest next steps based on findings
-
 ---
-
-## Full Methodology
+name: offensive-oauth
+description: "OAuth 2.0 attack checklist: authorization code interception, redirect_uri bypass, CSRF on OAuth flow, state parameter abuse, open redirector chaining, token leakage via Referer, PKCE bypass, and scope escalation. Use when testing OAuth implementations in web apps or bug bounty. Triggers: OAuth, OAuth 2.0, authorization code, redirect_uri bypass, OAuth CSRF, state parameter, PKCE bypass, scope escalation, token leakage, open redirector, OAuth attack."
+---
 
 # OAuth Security Testing
 
