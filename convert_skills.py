@@ -8,7 +8,7 @@ import re
 import zipfile
 from pathlib import Path
 
-INPUT_DIR = Path("skills")
+INPUT_DIR = Path("Skills")
 OUTPUT_DIR = Path("skills-converted")
 ZIP_DIR = Path("skills-zip")
 
@@ -106,7 +106,10 @@ def parse_skill(content: str, file_path: Path) -> dict:
 
 def build_yaml(meta: dict) -> str:
     lines = ['---', f'name: {meta["name"]}', 'description: >']
-    words = meta['description'].split()
+    desc = meta['description']
+    if meta.get('triggers'):
+        desc = f"{desc} Triggers: {', '.join(meta['triggers'])}."
+    words = desc.split()
     line = '  '
     for w in words:
         if len(line) + len(w) + 1 > 80:
@@ -116,14 +119,9 @@ def build_yaml(meta: dict) -> str:
             line += (' ' if len(line) > 2 else '') + w
     if line.strip():
         lines.append(line)
-    
-    lines.append('trigger_phrases:')
-    for t in meta['triggers']:
-        lines.append(f'  - "{t}"')
-    if meta.get('folder'):
-        lines.append(f'folder: {meta["folder"]}')
-    if meta.get('source'):
-        lines.append(f'source: {meta["source"]}')
+
+    # Claude Code frontmatter uses only name + description. Trigger phrases are
+    # folded into the description; folder/source are dropped (non-standard keys).
     lines.append('---')
     return '\n'.join(lines)
 
