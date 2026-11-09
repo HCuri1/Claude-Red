@@ -34,7 +34,7 @@ Drop a skill into your Claude environment and it behaves like a domain specialis
 ### Claude Skills System (Recommended)
 
 ```bash
-git clone https://github.com/SnailSploit/claude-red ~/.claude/skills/claude-red
+git clone https://github.com/HCuri1/claude-red ~/.claude/skills/claude-red
 ```
 
 Claude auto-loads matching skills based on conversational triggers (e.g., mentioning SQL injection loads `offensive-sqli`).
@@ -42,7 +42,7 @@ Claude auto-loads matching skills based on conversational triggers (e.g., mentio
 To install a single category:
 
 ```bash
-git clone --filter=blob:none --sparse https://github.com/SnailSploit/claude-red
+git clone --filter=blob:none --sparse https://github.com/HCuri1/claude-red
 cd claude-red && git sparse-checkout set Skills/web Skills/active-directory
 ```
 
